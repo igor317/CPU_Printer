@@ -70,7 +70,11 @@ namespace CPU_Printer
         }
         public string GetTest2Command()
         {
-            return startSymbol + "test2" + endSymbol;
+            return startSymbol + "elp+0500+050001000100" + endSymbol;
+        }
+        public string GetTest3Command()
+        {
+            return startSymbol + "test3" + endSymbol;
         }
         #endregion
     }

@@ -323,6 +323,14 @@ namespace CPU_Printer
             }
         }
 
+        private void btnTest3_Click(object sender, EventArgs e)
+        {
+            if (mainForm.serialPort.IsOpen)
+            {
+                mainForm.serialPort.Write(cpuGen.GetTest3Command() + Convert.ToString(txtTest.Text));
+            }
+        }
+
         private void ExecuteScript()
         {
             if (a > lbxScripts.Items.Count - 1)

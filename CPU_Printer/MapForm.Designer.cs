@@ -57,6 +57,7 @@
             this.txtTest = new System.Windows.Forms.TextBox();
             this.btnCalib = new System.Windows.Forms.Button();
             this.btnTest2 = new System.Windows.Forms.Button();
+            this.btnTest3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblXY
@@ -303,7 +304,7 @@
             // 
             // txtTest
             // 
-            this.txtTest.Location = new System.Drawing.Point(180, 350);
+            this.txtTest.Location = new System.Drawing.Point(255, 394);
             this.txtTest.Name = "txtTest";
             this.txtTest.Size = new System.Drawing.Size(69, 20);
             this.txtTest.TabIndex = 33;
@@ -329,11 +330,22 @@
             this.btnTest2.UseVisualStyleBackColor = true;
             this.btnTest2.Click += new System.EventHandler(this.btnTest2_Click);
             // 
+            // btnTest3
+            // 
+            this.btnTest3.Location = new System.Drawing.Point(175, 347);
+            this.btnTest3.Name = "btnTest3";
+            this.btnTest3.Size = new System.Drawing.Size(75, 23);
+            this.btnTest3.TabIndex = 36;
+            this.btnTest3.Text = "test3";
+            this.btnTest3.UseVisualStyleBackColor = true;
+            this.btnTest3.Click += new System.EventHandler(this.btnTest3_Click);
+            // 
             // MapForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(556, 436);
+            this.Controls.Add(this.btnTest3);
             this.Controls.Add(this.btnTest2);
             this.Controls.Add(this.btnCalib);
             this.Controls.Add(this.txtTest);
@@ -402,5 +414,6 @@
         private System.Windows.Forms.TextBox txtTest;
         private System.Windows.Forms.Button btnCalib;
         private System.Windows.Forms.Button btnTest2;
+        private System.Windows.Forms.Button btnTest3;
     }
 }
