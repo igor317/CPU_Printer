@@ -331,6 +331,22 @@ namespace CPU_Printer
             }
         }
 
+        private void btnPenUp_Click(object sender, EventArgs e)
+        {
+            if (mainForm.serialPort.IsOpen)
+            {
+                mainForm.serialPort.Write(cpuGen.GetPenUpCommand());
+            }
+        }
+
+        private void btnPenDown_Click(object sender, EventArgs e)
+        {
+            if (mainForm.serialPort.IsOpen)
+            {
+                mainForm.serialPort.Write(cpuGen.GetPenDownCommand());
+            }
+        }
+
         private void ExecuteScript()
         {
             if (a > lbxScripts.Items.Count - 1)
@@ -478,6 +494,7 @@ namespace CPU_Printer
                 return;
             vectorPicture.LoadPicture(path);
             lbxScripts.Items.Clear();
+            lbxScripts.Items.Add(cpuGen.GetPenUpCommand());
             lbxScripts.Items.Add(cpuGen.GetStartPosCommand());
             counter = 0;
             x1 = new int[vectorPicture.Counter+1];
@@ -495,25 +512,37 @@ namespace CPU_Printer
                 x2[i] = Convert.ToInt16(vectorPicture.GetX2(i) * xC);
                 y2[i] = Convert.ToInt16(vectorPicture.GetY2(i) * yC);
 
+                if (i != 0 && x1[i] != x2[i - 1] && y1[i] != y2[i - 1])
+                    lbxScripts.Items.Add(cpuGen.GetPenUpCommand());
+
                 int x11 = Convert.ToInt16(x1[i] * xCoeff);
                 int y11 = Convert.ToInt16(y1[i] * yCoeff);
                 int x22 = Convert.ToInt16(x2[i] * xCoeff);
                 int y22 = Convert.ToInt16(y2[i] * yCoeff);
-
+           
                 xSelect = x11;
                 ySelect = y11;
                 if ((xSelect - xPos) != 0 || (ySelect - yPos) != 0)
+                {
                     lbxScripts.Items.Add(GetWay());
+                    lbxScripts.Items.Add(cpuGen.GetPenDownCommand());
+                }
                 xPos = xSelect;
                 yPos = ySelect;
                 xSelect = x22;
                 ySelect = y22;
                 if ((xSelect - xPos) != 0 || (ySelect - yPos) != 0)
+                {
                     lbxScripts.Items.Add(GetWay());
+                }
                 xPos = xSelect;
                 yPos = ySelect;
                 counter++;
             }
+            lbxScripts.Items.Add(cpuGen.GetPenUpCommand());
+            lbxScripts.Items.Add(cpuGen.GetStartPosCommand());
+            xPos = 0;
+            yPos = 0;
             DrawInPanel();
             lblinfo.Text = "File Loaded!";
         }

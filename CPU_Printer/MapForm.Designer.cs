@@ -58,6 +58,8 @@
             this.btnCalib = new System.Windows.Forms.Button();
             this.btnTest2 = new System.Windows.Forms.Button();
             this.btnTest3 = new System.Windows.Forms.Button();
+            this.btnPenDown = new System.Windows.Forms.Button();
+            this.btnPenUp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblXY
@@ -340,11 +342,33 @@
             this.btnTest3.UseVisualStyleBackColor = true;
             this.btnTest3.Click += new System.EventHandler(this.btnTest3_Click);
             // 
+            // btnPenDown
+            // 
+            this.btnPenDown.Location = new System.Drawing.Point(510, 315);
+            this.btnPenDown.Name = "btnPenDown";
+            this.btnPenDown.Size = new System.Drawing.Size(34, 23);
+            this.btnPenDown.TabIndex = 37;
+            this.btnPenDown.Text = "↓";
+            this.btnPenDown.UseVisualStyleBackColor = true;
+            this.btnPenDown.Click += new System.EventHandler(this.btnPenDown_Click);
+            // 
+            // btnPenUp
+            // 
+            this.btnPenUp.Location = new System.Drawing.Point(510, 290);
+            this.btnPenUp.Name = "btnPenUp";
+            this.btnPenUp.Size = new System.Drawing.Size(34, 23);
+            this.btnPenUp.TabIndex = 38;
+            this.btnPenUp.Text = "↑";
+            this.btnPenUp.UseVisualStyleBackColor = true;
+            this.btnPenUp.Click += new System.EventHandler(this.btnPenUp_Click);
+            // 
             // MapForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(556, 436);
+            this.Controls.Add(this.btnPenUp);
+            this.Controls.Add(this.btnPenDown);
             this.Controls.Add(this.btnTest3);
             this.Controls.Add(this.btnTest2);
             this.Controls.Add(this.btnCalib);
@@ -415,5 +439,7 @@
         private System.Windows.Forms.Button btnCalib;
         private System.Windows.Forms.Button btnTest2;
         private System.Windows.Forms.Button btnTest3;
+        private System.Windows.Forms.Button btnPenDown;
+        private System.Windows.Forms.Button btnPenUp;
     }
 }

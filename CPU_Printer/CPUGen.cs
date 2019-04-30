@@ -36,13 +36,13 @@ namespace CPU_Printer
             string Y;
 
             if (leftX)
-                X = "l" + ConvertNumber(xStep);
+                X = "-" + ConvertNumber(xStep);
             else
-                X = "r" + ConvertNumber(xStep);
+                X = "+" + ConvertNumber(xStep);
             if (leftY)
-                Y = "l" + ConvertNumber(yStep);
+                Y = "-" + ConvertNumber(yStep);
             else
-                Y = "r" + ConvertNumber(yStep);
+                Y = "+" + ConvertNumber(yStep);
             return startSymbol + "mv" + X + Y + endSymbol;
         }
 
@@ -75,6 +75,14 @@ namespace CPU_Printer
         public string GetTest3Command()
         {
             return startSymbol + "test3" + endSymbol;
+        }
+        public string GetPenUpCommand()
+        {
+            return startSymbol + "penup" + endSymbol;
+        }
+        public string GetPenDownCommand()
+        {
+            return startSymbol + "pendown" + endSymbol;
         }
         #endregion
     }

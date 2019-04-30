@@ -101,7 +101,6 @@ namespace CPU_Printer
         #region PRIVATE METHODS
         private void OnDataReceived(object sender, SerialDataReceivedEventArgs e)
         {
-
             SerialPort obj = (SerialPort)sender;
             string test = obj.ReadExisting();
             textaccepter += test;
